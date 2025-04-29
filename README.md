@@ -94,7 +94,13 @@ ScreenTranslator uses environment variables for configuration. The following var
 Run the application using Poetry:
 
 ```
-poetry run python main.py
+poetry run screen_translator
+```
+
+Or if you've installed the package:
+
+```
+screen_translator
 ```
 
 This will:
@@ -103,6 +109,35 @@ This will:
 3. Translate the text to your target language
 4. Optionally insert the translated text into the screenshot (if `INSERT_TRANSLATED_TEXT` is enabled)
 5. Display the results
+6. Save the screenshots to `~/.screentranslator/YYYY-MM-DD/` directory
+
+### Command-line Options
+
+ScreenTranslator provides various command-line options to customize its behavior:
+
+```
+screen_translator --help
+```
+
+#### Translation Settings
+- `--translation-service {google,gpt,deepl}`: Translation service to use
+- `--source-language SOURCE_LANGUAGE`: Source language code
+- `--target-language TARGET_LANGUAGE`: Target language code
+
+#### Screenshot Settings
+- `--screenshot-provider {pyautogui,pil}`: Screenshot provider to use
+
+#### Text Recognition Settings
+- `--text-recognition-provider {tesseract,mock}`: Text recognition provider to use
+
+#### Text Insertion Settings
+- `--text-insertion-provider {pil}`: Text insertion provider to use
+- `--insert-translated-text`: Insert translated text into screenshot
+- `--no-insert-translated-text`: Do not insert translated text into screenshot
+
+#### Debug Settings
+- `--debug`: Enable debug mode
+- `--log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}`: Set logging level
 
 ### Programmatic Usage
 
